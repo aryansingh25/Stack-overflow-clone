@@ -6,7 +6,8 @@ import "./Users.css";
 
 const UsersList = () => {
   const users = useSelector((state) => state.usersReducer);
-
+  console.log(users)
+  if(users===null) return <>Loading</>
   return (
     <div className="user-list-container">
       {users.map((user) => (
