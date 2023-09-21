@@ -9,6 +9,7 @@ import connectDB from "./connectMongoDb.js";
 import mongoose from "mongoose";
 import chatbotRoutes from "./routes/chatbot.js"
 import otpRoutes from "./routes/otp.js"
+import path from "path"
 
 dotenv.config();
 //connectDB();
@@ -26,6 +27,23 @@ app.use('/questions', questionRoutes);
 app.use("/answer", answerRoutes);
 app.use("/otp" , otpRoutes)
 app.use("/chatbot" , chatbotRoutes)
+
+// --------------------Deployment---------------------
+const __dirname1 = path.resolve();
+console.log(__dirname1); 
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname1, "../client/build")));
+  console.log("sdf"); 
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "client", "build", "index.html"));
+  });
+}
+else{
+  app.get("/", (req, res) => {
+    res.send("API IS RUNNING SUCCESSFUL")
+  });
+}
+// --------------------Deployment---------------------
 
 
 const PORT = process.env.PORT || 5000;

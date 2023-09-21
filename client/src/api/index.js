@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const API = axios.create({
-//   baseURL: "http://stack-overflow-eight.vercel.app/",
   baseURL: "http://localhost:5000",
 
 });
