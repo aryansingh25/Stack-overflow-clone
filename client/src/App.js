@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import AllRoutes from "./AllRoutes.jsx";
 import { fetchAllQuestions } from "./actions/question";
 import { fetchAllUsers } from "./actions/users";
-import ChatBot from "./components/Chatbot/ChatBot";
+// import ChatBot from "./components/Chatbot/ChatBot";
 import chatbotIcon from './assets/chatbot-icon.png';
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
       <Router>
         <Navbar handleSlideIn={handleSlideIn} />
         <AllRoutes slideIn={slideIn} handleSlideIn={handleSlideIn} />
-        {isOpen ? (
+        {/* {isOpen ? (
           <ChatBot
           setIsOpen={setIsOpen}
           setIsVerified={setIsVerified}
@@ -50,7 +50,7 @@ function App() {
          >
           <img src={chatbotIcon} width="50" alt="icon" />
          </button>
-        }
+        } */}
       </Router>
     </div>
   );
